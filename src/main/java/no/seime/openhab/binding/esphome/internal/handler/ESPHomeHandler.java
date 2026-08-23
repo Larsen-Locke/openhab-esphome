@@ -282,8 +282,14 @@ public class ESPHomeHandler extends BaseThingHandler implements CommunicationLis
 
                 logger.info("[{}] Trying to connect to {}:{}", logPrefix, connectionTarget.logTarget(), port);
                 if (config.deepSleep && getThing().getStatus() != ThingStatus.ONLINE) {
-                    updateStatus(ThingStatus.UNKNOWN, ThingStatusDetail.NONE,
-                            String.format("Connecting to %s:%d", connectionTarget.statusTarget(), port));
+                    if (config.deepSleepAssumeOnline) {
+                        logger.debug("[{}] Deep sleep assume online", logPrefix);
+                        updateStatus(ThingStatus.ONLINE);
+                        scheduleDeepSleepWatchdog();
+                    } else {
+                        updateStatus(ThingStatus.UNKNOWN, ThingStatusDetail.NONE,
+                                String.format("Connecting to %s:%d", connectionTarget.statusTarget(), port));
+                    }
                 }
 
                 // Default to using the default encryption key from the binding if not set in device configuration

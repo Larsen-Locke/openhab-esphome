@@ -54,4 +54,6 @@ public class ESPHomeConfiguration {
     public boolean deepSleep = false;
 
     public long deepSleepTimeoutSeconds;
+
+    public boolean deepSleepAssumeOnline = false;
 }
