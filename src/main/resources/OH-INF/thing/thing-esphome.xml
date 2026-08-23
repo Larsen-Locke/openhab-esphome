@@ -74,6 +74,12 @@
 				</description>
 				<advanced>true</advanced>
 			</parameter>
+			<parameter name="deepSleepAssumeOnline" type="boolean" required="false" groupName="deepSleep">
+				<label>Assume deep sleep device online</label>
+				<description>If `deepSleep` parameter is `true`, assume thing is `ONLINE` without any verification. If the device has not woken up in `deepSleepTimeoutSeconds`, the thing status is changed to `OFFLINE`.</description>
+				<default>false</default>
+				<advanced>true</advanced>
+			</parameter>
 
 			<parameter name="reconnectInterval" type="integer" min="1" required="false" groupName="timeout">
 				<label>Initial reconnect interval in seconds</label>

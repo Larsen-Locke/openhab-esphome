@@ -76,6 +76,10 @@ attempt to reconnect to devices that are offline, and will instead wait for them
 recommended mode for battery-powered devices that use deep sleep to save power. Also set `deepSleepTimeoutSeconds` to
 a reasonable value to detect if the device isn't reachable.
 
+It is also possible to set `deepSleepAssumeOnline = true` to assume the `thing`/device is online without any
+verification. This
+is useful for devices that are known to be online, but be just sleeping when the `thing` is initiated.
+
 ## Thing Configuration
 
 ### `device` Thing Configuration
