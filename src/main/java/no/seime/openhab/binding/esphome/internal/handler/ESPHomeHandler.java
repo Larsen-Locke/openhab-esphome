@@ -10,7 +10,7 @@
  * <p>
  * SPDX-License-Identifier: EPL-2.0
  */
-package no.seime.openhab.binding.esphome.internal.handler;
+updateStatus(ThingStatus.UNKNOWN
 
 import java.math.BigDecimal;
 import java.net.InetAddress;
@@ -209,7 +209,7 @@ public class ESPHomeHandler extends BaseThingHandler implements CommunicationLis
            if (config.deepSleepAssumeOnline) {
 updateStatus(ThingStatus.ONLINE)
            else {
-               updateStatus(ThingStatus.UNKNOWN, ThingStatusDetail.NONE, "Waiting for device to wake up from deep sleep");
+                updateStatus( ThingStatus.UNKNOWN, ThingStatusDetail.NONE, "Waiting for device to wake up from deep sleep");
         } 
         else {
             exponentialBackoff = new ExponentialBackoff(config.reconnectInterval, config.maxReconnectInterval);
