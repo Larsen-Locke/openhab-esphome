@@ -206,11 +206,13 @@ public class ESPHomeHandler extends BaseThingHandler implements CommunicationLis
         versionService.addListener(this);
 
         if (config.deepSleep) {
-           if (config.deepSleepAssumeOnline) {
-updateStatus(ThingStatus.ONLINE)
-           else {
+            if (config.deepSleepAssumeOnline) {
+                updateStatus(ThingStatus.ONLINE)
+            }
+            else {
                 updateStatus( ThingStatus.UNKNOWN, ThingStatusDetail.NONE, "Waiting for device to wake up from deep sleep");
-        } 
+            } 
+        }
         else {
             exponentialBackoff = new ExponentialBackoff(config.reconnectInterval, config.maxReconnectInterval);
             if (config.hostname != null && !config.hostname.isEmpty()) {
